@@ -12,6 +12,7 @@ class WeatherAPI {
                 url:        url,
                 params:     {
                     ...query,
+                    units: 'metric',
                     APPID: WEATHER_API_KEY
                 }
             }).then(response => {

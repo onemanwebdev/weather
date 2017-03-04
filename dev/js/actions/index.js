@@ -26,3 +26,12 @@ export const fetchShortForecast = ({query}) => {
         })
     }
 }
+
+export const fetchLongForecast = ({query}) => {
+    return dispatch => {
+        return dispatch({
+            type: `${actionTypes.FETCH_LONG_FORECAST}`,
+            payload: query
+        })
+    }
+}

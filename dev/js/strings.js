@@ -4,3 +4,6 @@ export const PRESSURE_LABEL = 'Pressure:';
 export const HUMIDITY_LABEL = 'Humidity:';
 export const CLOUD_COVERAGE_LABEL = 'Cloud coverage:';
 export const ERROR_MESSAGE = 'There was an error. Try again...';
+export const CURRENT_WEATHER_LABEL = 'Current weather in';
+export const SHORT_FORECAST_LABEL = '5 day / 3 hour forecast';
+export const LONG_FORECAST_LABEL = '16 day / daily forecast';

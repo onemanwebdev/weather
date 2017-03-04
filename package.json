@@ -27,6 +27,7 @@
     "react-dom": "^15.1.0",
     "react-redux": "^4.4.5",
     "react-tap-event-plugin": "^2.0.1",
+    "recharts": "^0.21.2",
     "redux": "^3.5.2",
     "redux-promise": "^0.5.3",
     "redux-thunk": "^2.1.0",

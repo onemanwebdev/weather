@@ -1,28 +1,30 @@
 import React from 'react';
 import { TEMPERATURE_LABEL,
          PRESSURE_LABEL,
+         CURRENT_WEATHER_LABEL,
          HUMIDITY_LABEL,
          CLOUD_COVERAGE_LABEL } from '../strings';
 
-const CurrentWeather = ({currentWeather}) => {
-    console.log(currentWeather);
+const CurrentWeather = ({data}) => {
     return (
         <div>
-            {currentWeather.main &&
+            {data.main &&
                 <div className="content-section">
-                    <h1 className="content-section__heading">{`Current weather in ${currentWeather.name}, ${currentWeather.sys.country}:`}</h1>
+                    <h1 className="content-section__heading">
+                        {`${CURRENT_WEATHER_LABEL} ${data.name}, ${data.sys.country}:`}
+                    </h1>
                     <ul className="content-section__list">
                         <li>
-                            {TEMPERATURE_LABEL} <b>{currentWeather.main.temp}</b>
+                            {TEMPERATURE_LABEL} <b>{`${data.main.temp} C`}</b>
                         </li>
                         <li>
-                            {HUMIDITY_LABEL} <b>{currentWeather.main.humidity}</b>
+                            {HUMIDITY_LABEL} <b>{`${data.main.humidity} %`}</b>
                         </li>
                         <li>
-                            {PRESSURE_LABEL} <b>{currentWeather.main.pressure}</b>
+                            {PRESSURE_LABEL} <b>{`${data.main.pressure} hPa`}</b>
                         </li>
                         <li>
-                            {CLOUD_COVERAGE_LABEL} <b>{`${currentWeather.clouds.all}%`}</b>
+                            {CLOUD_COVERAGE_LABEL} <b>{`${data.clouds.all} %`}</b>
                         </li>
                     </ul>
                 </div>
