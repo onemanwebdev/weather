@@ -1,0 +1,12 @@
+.info-box{
+    width: 100%;
+    padding: 20px;
+    margin: 10px 0;
+    text-align: center;
+    box-sizing: border-box;
+
+    &--error {
+        background-color: #ef5350;
+        color: #ffffff;
+    }
+}

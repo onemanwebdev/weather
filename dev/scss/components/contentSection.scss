@@ -1,0 +1,20 @@
+.content-section {
+    width: 100%;
+    color: #757575;
+    margin-bottom: 10px;
+
+    &__heading {
+        font-size: 1em;
+        color: #00BCD4;
+    }
+
+    &__list {
+        margin: 0;
+        padding: 0;
+        list-style: none;
+
+        li {
+            padding-bottom: 4px;
+        }
+    }
+}

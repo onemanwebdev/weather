@@ -2,7 +2,7 @@
 import React, {Component} 	from 'react';
 import {connect} 			from 'react-redux';
 // Actions
-import { addSearchString } 	from '../actions';
+import { addSearchString, fetchWeatherForQuery } from '../actions';
 // Strings
 import { CITY_LABEL } 		from '../strings';
 // UI Stuff
@@ -19,19 +19,12 @@ class SearchBar extends Component {
 		}
 	}
 
-  	performSearch() {
-  		console.log(`Performing search`)
-  	}
-
-  	onUpdateInput(inputValue) {
-		console.log(`Input updated ${inputValue}`)
-  	}
-
 	handleSubmit(searchString) {
 		const { dispatch } = this.props;
         dispatch(addSearchString({
             searchString
         }));
+        this.props.onSubmit(searchString);
 	}
 
 	render() {
@@ -42,8 +35,8 @@ class SearchBar extends Component {
 					floatingLabelText   ={CITY_LABEL}
 					filter              ={AutoComplete.noFilter}
 					openOnFocus         ={true}
+                    fullWidth           ={true}
 					dataSource          ={this.props.searchData}
-					onUpdateInput       ={this.onUpdateInput}
 					onNewRequest        ={(searchString) => {
 						this.handleSubmit(searchString);
 					}} 
@@ -54,9 +47,10 @@ class SearchBar extends Component {
 }
 
 const mapStateToProps = (state) => {
+    const { searchData } = state;
     return {
-        ...state
-    }
+        searchData
+    };
 }
 
 const mapDispatchToProps = (dispatch) => {
