@@ -4,7 +4,7 @@ import isEmpty              from 'lodash.isempty';
 import CurrentWeather       from '../components/currentWeather';
 import ShortForecast        from '../components/shortForecast';
 import LongForecast         from '../components/longForecast';
-import SearchBar            from '../containers/searchBar';
+import SearchBar            from './searchBar';
 import { fetchCurrentWeather, 
          fetchShortForecast,
          fetchLongForecast } from '../actions';
