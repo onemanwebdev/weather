@@ -1,18 +1,31 @@
-import axios                from 'axios';
-import { WEATHER_API_KEY }  from '../config';
+import axios from 'axios';
+import { WEATHER_API_KEY,
+         WEATHER_API_URL,
+         WEATHER_API_UNIT_SYSTEM,
+         WEATHER_API_VERSION }  from '../config';
 
 let _weatherAPI = null;
 
+/**
+ * Singleton service for managing data calls to the OpenWeatherMap API
+ * @constructor
+ */
 class WeatherAPI {
-
-    fetch({url, query}) {
+    
+    /**
+     * @desc Fetches Data from an API method
+     * @param {string} [method] Method
+     * @param {object} [query] Request params
+     * @return {Promise} Response
+     */
+    fetch({method, query}) {
         return new Promise((resolve, reject) => {
             axios({
                 method:     'get',
-                url:        url,
+                url:        `${WEATHER_API_URL}/${WEATHER_API_VERSION}/${method}`,
                 params:     {
                     ...query,
-                    units: 'metric',
+                    units: WEATHER_API_UNIT_SYSTEM,
                     APPID: WEATHER_API_KEY
                 }
             }).then(response => {

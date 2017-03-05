@@ -7,6 +7,7 @@ const defaultState = {
     shortForecast: {},
     longForecast: {}
 };
+
 export default function (state = defaultState, action) {
     switch (action.type) {
         case actionTypes.FETCH_CURRENT_WEATHER:

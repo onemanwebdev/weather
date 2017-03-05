@@ -1,4 +1,4 @@
-import * as actionTypes from '../constants/actionTypes';
+import * as actionTypes         from '../constants/actionTypes';
 import { RECENTLY_USED_LIMIT }  from '../config';
 
 const searchBarMiddleware = store => {

@@ -13,17 +13,30 @@ require('../../scss/style.scss');
 
 class App extends Component {
 
+    /**
+     * @desc Dispatches actions with the query
+     * @param {string} [query] Query
+     * @return {undefined}
+     */
     handleSubmit(query) {
         const { dispatch } = this.props;
+
+        // Perform the fetches
         dispatch(fetchCurrentWeather({query}));
         dispatch(fetchShortForecast({query}));
         dispatch(fetchLongForecast({query}));
     }
 
+    /**
+     * @desc Returns components
+     * @return {undefined}
+     */
     renderData() {
 
+        // If there was an error - show error box
         if (this.props.isError) return (<div className="info-box info-box--error">{ERROR_MESSAGE}</div>);
 
+        // Return nothing if there is no data available
         if (isEmpty(this.props.currentWeather)) return null;
 
         return (
